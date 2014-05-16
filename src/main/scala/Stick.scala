@@ -37,8 +37,9 @@ object Stick {
       for (b1r <- b1.allRotations;
            b2r <- b2.allRotations;
            b3r <- b3.allRotations;
-           b4r <- b4.allRotations) 
-      yield new Stick(List(b1r,b2r,b3r,b4r))
-    println(sticks.filter(_.valid).map(_.toString + "\n").mkString)
+           b4r <- b4.allRotations;
+           s <- List(new Stick(List(b1r,b2r,b3r,b4r))) if s.valid) 
+      yield s
+    println(sticks.map(_.toString + "\n").mkString)
   }
 }
